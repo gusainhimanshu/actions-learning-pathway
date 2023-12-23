@@ -6,10 +6,12 @@ jobs:
     steps: 
       - name: checkout repo
         uses: actions/checkout@v3
+        
       - name: use node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+        
       - run: npm install
       - run: npm run build 
   test:
@@ -17,10 +19,12 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
+        
       - name: use node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          
       - run: npm install
       - run: npm test
   deploy: 
@@ -51,6 +55,6 @@ jobs:
         with:
           path: "./out"
       
-      - name: deploy
+      - name: deploy pages
       - id: deployment
       - uses: actions/deploy-pages@v3
